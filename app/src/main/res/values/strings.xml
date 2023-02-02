@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Parrot</string>
+
+    <string name="about_screen_title">About</string>
+    <string name="about_screen_top_header">Powered (but not endorsed) by:</string>
+
+    <string name="account_screen_main_title">My Account</string>
+    <string name="account_screen_main_username_label">User Name:</string>
+    <string name="account_screen_main_theme_label">Update Your Theme:</string>
+
+    <string name="account_screen_user_screech_title">My Screeches</string>
+    <string name="account_screen_user_screech_placeholder">Looks like you haven\'t screeched yet</string>
+
+    <string name="account_screen_user_favorites_title">My Favorites</string>
+    <string name="account_screen_user_favorites_placeholder">Looks like you don\'t have any favorites yet</string>
+
+    <string name="bottom_bar_account_home_button_description">Account Screen</string>
+    <string name="bottom_bar_cacophony_button_description">Home Screen</string>
+    <string name="bottom_bar_about_button_description">About Screen</string>
+    <string name="bottom_bar_new_screech_description">Create Screech</string>
+
+    <string name="cacophony_screen_title">Parrot</string>
+
+    <string name="onboarding_screen_main_header">Welcome to Parrot</string>
+    <string name="onboarding_screen_sub_header">The world\'s first offline bird themed social media app</string>
+    <string name="onboarding_screen_username_label">Please pick your user name:</string>
+    <string name="onboarding_screen_username_input_label">MyUsername</string>
+    <string name="onboarding_screen_theme_label">And choose a theme:</string>
+    <string name="onboarding_screen_submit_button">Get Started</string>
+
+    <string name="screech_card_favorite_button">Favorite</string>
+
+    <string name="screech_input_submit_button">Submit</string>
+    <string name="screech_input_cancel_button">Cancel</string>
+</resources>

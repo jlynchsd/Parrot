@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ThemeStyle">
+        <attr name="colorPrimary" format="color" />
+        <attr name="colorSecondary" format="color" />
+        <attr name="colorTertiary" format="color" />
+
+        <attr name="colorParrotBeakTop" format="color" />
+        <attr name="colorParrotBeakBottom" format="color" />
+        <attr name="colorParrotHeadTop" format="color" />
+        <attr name="colorParrotNeck" format="color" />
+        <attr name="colorParrotEye" format="color" />
+        <attr name="colorParrotBackground" format="color" />
+    </declare-styleable>
+
+    <style name="Theme.Parrot" parent="android:Theme.Material.Light.NoActionBar" >
+        <item name="colorPrimary">@color/blm_primary</item>
+        <item name="colorSecondary">@color/blm_secondary</item>
+        <item name="colorTertiary">@color/blm_tertiary</item>
+
+        <item name="colorParrotBeakTop">@color/parrot_beak_grey</item>
+        <item name="colorParrotBeakBottom">@color/parrot_beak_grey</item>
+        <item name="colorParrotHeadTop">@color/blm_primary</item>
+        <item name="colorParrotNeck">@color/blm_secondary</item>
+        <item name="colorParrotEye">@color/black</item>
+        <item name="colorParrotBackground">@color/blm_background</item>
+    </style>
+
+    <style name="Theme.Parrot.ScarletMacaw" parent="Theme.Parrot" >
+        <item name="colorPrimary">@color/sm_primary</item>
+        <item name="colorSecondary">@color/sm_secondary</item>
+        <item name="colorTertiary">@color/sm_tertiary</item>
+
+        <item name="colorParrotBeakTop">@color/sm_tertiary</item>
+        <item name="colorParrotBeakBottom">@color/parrot_beak_grey</item>
+        <item name="colorParrotHeadTop">@color/sm_primary</item>
+        <item name="colorParrotNeck">@color/sm_primary</item>
+        <item name="colorParrotEye">@color/black</item>
+    </style>
+
+    <style name="Theme.Parrot.Amazon" parent="Theme.Parrot" >
+        <item name="colorPrimary">@color/a_primary</item>
+        <item name="colorSecondary">@color/a_secondary</item>
+        <item name="colorTertiary">@color/a_tertiary</item>
+
+        <item name="colorParrotBeakTop">@color/parrot_beak_grey</item>
+        <item name="colorParrotBeakBottom">@color/parrot_beak_grey</item>
+        <item name="colorParrotHeadTop">@color/a_secondary</item>
+        <item name="colorParrotNeck">@color/a_primary</item>
+        <item name="colorParrotEye">@color/black</item>
+    </style>
+
+    <style name="Theme.Parrot.Grey" parent="Theme.Parrot" >
+        <item name="colorPrimary">@color/g_primary</item>
+        <item name="colorSecondary">@color/g_secondary</item>
+        <item name="colorTertiary">@color/g_tertiary</item>
+
+        <item name="colorParrotBeakTop">@color/black</item>
+        <item name="colorParrotBeakBottom">@color/black</item>
+        <item name="colorParrotHeadTop">@color/g_secondary</item>
+        <item name="colorParrotNeck">@color/g_primary</item>
+        <item name="colorParrotEye">@color/black</item>
+        <item name="colorParrotBackground">@color/g_background</item>
+    </style>
+
+</resources>
