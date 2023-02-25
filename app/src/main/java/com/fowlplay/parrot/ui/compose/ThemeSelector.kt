@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.fowlplay.parrot.viewmodel.AppIntent
 import com.fowlplay.parrot.viewmodel.ParrotViewModel
 import com.fowlplay.parrot.viewmodel.Theme
@@ -22,7 +23,7 @@ internal fun getThemeSelectorButtonTestId(theme: Theme) =
 
 @Composable
 fun ThemeSelector(viewModel: ParrotViewModel) {
-    val state by viewModel.state.collectAsState()
+    val state by viewModel.state.collectAsStateWithLifecycle()
     val radioOptions = Theme.values().map { it.name }
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[state.theme.ordinal]) }
 

@@ -13,6 +13,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.fowlplay.parrot.R
 import com.fowlplay.parrot.viewmodel.AppIntent
 import com.fowlplay.parrot.viewmodel.ParrotViewModel
@@ -26,7 +27,7 @@ fun ScreechInputWrapper(viewModel: ParrotViewModel, modifier: Modifier = Modifie
     Box(
         modifier = modifier.fillMaxSize()
     ) {
-        val state = viewModel.state.collectAsState()
+        val state = viewModel.state.collectAsStateWithLifecycle()
 
         content()
         AnimatedVisibility(

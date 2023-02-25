@@ -14,6 +14,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.fowlplay.parrot.R
 import com.fowlplay.parrot.ui.theme.unselectedGrey
@@ -125,7 +126,7 @@ private fun DotsIndicator(
 
 @Composable
 private fun AccountMainScreen(viewModel: ParrotViewModel) {
-    val settings by viewModel.model.getSettingsFlow().collectAsState(initial = Settings("", Theme.BlueYellowMacaw))
+    val settings by viewModel.model.getSettingsFlow().collectAsStateWithLifecycle(initialValue = Settings("", Theme.BlueYellowMacaw))
 
     Column(
         modifier = Modifier
@@ -160,20 +161,21 @@ private fun AccountScreechScreen(viewModel: ParrotViewModel) {
             .fillMaxHeight(.95f)
             .testTag(ACCOUNT_SCREEN_USER_SCREECH_SCREEN_TEST_ID)
     ) {
-        if (viewModel.userScreeches.collectAsLazyPagingItems().itemCount == 0) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight(.95f)
-            ) {
-                Text(text = stringResource(R.string.account_screen_user_screech_placeholder), style = MaterialTheme.typography.bodyLarge)
+        with (viewModel.userScreeches.collectAsLazyPagingItems()) {
+            if (this.itemCount == 0) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(.95f)
+                ) {
+                    Text(text = stringResource(R.string.account_screen_user_screech_placeholder), style = MaterialTheme.typography.bodyLarge)
+                }
+            } else {
+                Cacophony(this, viewModel, "Account Screen User Screeches")
             }
-        } else {
-            Cacophony(viewModel.userScreeches.collectAsLazyPagingItems(), viewModel, "Account Screen User Screeches")
         }
-        
     }
 }
 
@@ -186,18 +188,20 @@ private fun AccountFavoriteScreen(viewModel: ParrotViewModel) {
             .fillMaxHeight(.95f)
             .testTag(ACCOUNT_SCREEN_USER_FAVORITES_SCREEN_TEST_ID)
     ) {
-        if (viewModel.favoriteScreeches.collectAsLazyPagingItems().itemCount == 0) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight(.95f)
-            ) {
-                Text(text = stringResource(R.string.account_screen_user_favorites_placeholder), style = MaterialTheme.typography.bodyLarge)
+        with(viewModel.favoriteScreeches.collectAsLazyPagingItems()) {
+            if (this.itemCount == 0) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .fillMaxHeight(.95f)
+                ) {
+                    Text(text = stringResource(R.string.account_screen_user_favorites_placeholder), style = MaterialTheme.typography.bodyLarge)
+                }
+            } else {
+                Cacophony(this, viewModel, "Account Screen Favorite Screeches")
             }
-        } else {
-            Cacophony(viewModel.favoriteScreeches.collectAsLazyPagingItems(), viewModel, "Account Screen Favorite Screeches")
         }
     }
 }

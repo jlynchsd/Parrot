@@ -5,12 +5,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.fowlplay.parrot.viewmodel.AppIntent
 import com.fowlplay.parrot.viewmodel.ParrotViewModel
 import com.fowlplay.parrot.viewmodel.ViewState
@@ -24,7 +24,7 @@ internal const val BOTTOM_BAR_NEW_SCREECH_BUTTON_TEST_ID = "Bottom Bar New Scree
 
 @Composable
 fun BottomBar(viewModel: ParrotViewModel) {
-    val currentState by viewModel.state.collectAsState(initial = State.default())
+    val currentState by viewModel.state.collectAsStateWithLifecycle(initialValue = State.default())
     BottomAppBar {
         IconButton(
             onClick = { viewModel.postIntent(AppIntent.BottomBar.AccountHome) },
